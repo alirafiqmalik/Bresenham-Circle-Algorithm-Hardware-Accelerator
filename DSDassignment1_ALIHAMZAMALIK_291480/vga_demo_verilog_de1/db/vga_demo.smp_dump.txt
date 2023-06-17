@@ -1,12 +1,5 @@
 
-State Machine - |vga_demo|challengetask:Ch1|task3:T3|state
-Name state.P7 state.P6 state.P5 state.P4 state.P3 state.P2 state.P1 state.R state.P8 
-state.R 0 0 0 0 0 0 0 0 0 
-state.P1 0 0 0 0 0 0 1 1 0 
-state.P2 0 0 0 0 0 1 0 1 0 
-state.P3 0 0 0 0 1 0 0 1 0 
-state.P4 0 0 0 1 0 0 0 1 0 
-state.P5 0 0 1 0 0 0 0 1 0 
-state.P6 0 1 0 0 0 0 0 1 0 
-state.P7 1 0 0 0 0 0 0 1 0 
-state.P8 0 0 0 0 0 0 0 1 1 
+State Machine - |vga_demo|memory_with_timer:my_memory|count
+Name count.01011111010111100001000000 
+count.00000000000000000000000000 0 
+count.01011111010111100001000000 1 

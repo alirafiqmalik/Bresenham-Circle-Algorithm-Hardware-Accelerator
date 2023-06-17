@@ -1,19 +1,19 @@
 |vga_demo
-CLOCK_50 => CLOCK_50.IN2
-SW[0] => ~NO_FANOUT~
-SW[1] => ~NO_FANOUT~
-SW[2] => ~NO_FANOUT~
+CLOCK_50 => CLOCK_50.IN3
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
 SW[3] => SW[3].IN1
-SW[4] => ~NO_FANOUT~
-SW[5] => ~NO_FANOUT~
-SW[6] => ~NO_FANOUT~
-SW[7] => ~NO_FANOUT~
-SW[8] => ~NO_FANOUT~
+SW[4] => SW[4].IN1
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+SW[8] => SW[8].IN1
 SW[9] => SW[9].IN1
-KEY_N[0] => ~NO_FANOUT~
-KEY_N[1] => ~NO_FANOUT~
-KEY_N[2] => ~NO_FANOUT~
-KEY_N[3] => KEY_N[3].IN1
+KEY_N[0] => KEY_N[0].IN1
+KEY_N[1] => KEY_N[1].IN2
+KEY_N[2] => KEY_N[2].IN2
+KEY_N[3] => KEY_N[3].IN2
 VGA_R[0] <= vga_adapter:VGA.VGA_R
 VGA_R[1] <= vga_adapter:VGA.VGA_R
 VGA_R[2] <= vga_adapter:VGA.VGA_R
@@ -43,70 +43,7877 @@ VGA_VS <= vga_adapter:VGA.VGA_VS
 VGA_BLANK <= vga_adapter:VGA.VGA_BLANK
 VGA_SYNC <= vga_adapter:VGA.VGA_SYNC
 VGA_CLK <= vga_adapter:VGA.VGA_CLK
+HEX0_N[0] <= hexto7segment:H0.port1
+HEX0_N[1] <= hexto7segment:H0.port1
+HEX0_N[2] <= hexto7segment:H0.port1
+HEX0_N[3] <= hexto7segment:H0.port1
+HEX0_N[4] <= hexto7segment:H0.port1
+HEX0_N[5] <= hexto7segment:H0.port1
+HEX0_N[6] <= hexto7segment:H0.port1
+HEX1_N[0] <= hexto7segment:H1.port1
+HEX1_N[1] <= hexto7segment:H1.port1
+HEX1_N[2] <= hexto7segment:H1.port1
+HEX1_N[3] <= hexto7segment:H1.port1
+HEX1_N[4] <= hexto7segment:H1.port1
+HEX1_N[5] <= hexto7segment:H1.port1
+HEX1_N[6] <= hexto7segment:H1.port1
 
 
-|vga_demo|task2:comb_3
-CLOCK_50 => colour[0]~reg0.CLK
-CLOCK_50 => colour[1]~reg0.CLK
-CLOCK_50 => colour[2]~reg0.CLK
-CLOCK_50 => y[0]~reg0.CLK
-CLOCK_50 => y[1]~reg0.CLK
-CLOCK_50 => y[2]~reg0.CLK
-CLOCK_50 => y[3]~reg0.CLK
-CLOCK_50 => y[4]~reg0.CLK
-CLOCK_50 => y[5]~reg0.CLK
-CLOCK_50 => y[6]~reg0.CLK
-CLOCK_50 => x[0]~reg0.CLK
-CLOCK_50 => x[1]~reg0.CLK
-CLOCK_50 => x[2]~reg0.CLK
-CLOCK_50 => x[3]~reg0.CLK
-CLOCK_50 => x[4]~reg0.CLK
-CLOCK_50 => x[5]~reg0.CLK
-CLOCK_50 => x[6]~reg0.CLK
-CLOCK_50 => x[7]~reg0.CLK
-CLOCK_50 => plot~reg0.CLK
-Reset => y[0]~reg0.ACLR
-Reset => y[1]~reg0.ACLR
-Reset => y[2]~reg0.ACLR
-Reset => y[3]~reg0.ACLR
-Reset => y[4]~reg0.ACLR
-Reset => y[5]~reg0.ACLR
-Reset => y[6]~reg0.ACLR
-Reset => x[0]~reg0.ACLR
-Reset => x[1]~reg0.ACLR
-Reset => x[2]~reg0.ACLR
-Reset => x[3]~reg0.ACLR
-Reset => x[4]~reg0.ACLR
-Reset => x[5]~reg0.ACLR
-Reset => x[6]~reg0.ACLR
-Reset => x[7]~reg0.ACLR
-Reset => plot~reg0.PRESET
-Reset => colour[0]~reg0.ENA
-Reset => colour[2]~reg0.ENA
-Reset => colour[1]~reg0.ENA
-Enable => colour.OUTPUTSELECT
-Enable => colour.OUTPUTSELECT
-Enable => colour.OUTPUTSELECT
-x[0] <= x[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-x[1] <= x[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-x[2] <= x[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-x[3] <= x[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-x[4] <= x[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-x[5] <= x[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-x[6] <= x[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-x[7] <= x[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-y[0] <= y[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-y[1] <= y[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-y[2] <= y[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-y[3] <= y[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-y[4] <= y[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-y[5] <= y[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-y[6] <= y[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-colour[0] <= colour[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-colour[1] <= colour[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-colour[2] <= colour[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-plot <= plot~reg0.DB_MAX_OUTPUT_PORT_TYPE
-Done <= plot~reg0.DB_MAX_OUTPUT_PORT_TYPE
+|vga_demo|Bresenham_circle:Bresenham_circle_init
+CLOCK_50 => CLOCK_50.IN65
+KEY_N[0] => KEY_N[0].IN1
+KEY_N[1] => ~NO_FANOUT~
+KEY_N[2] => ~NO_FANOUT~
+KEY_N[3] => KEY_N[3].IN21
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+SW[4] => SW[4].IN2
+SW[5] => SW[5].IN2
+SW[6] => SW[6].IN2
+SW[7] => SW[7].IN3
+SW[8] => SW[8].IN2
+SW[9] => SW[9].IN3
+lockingkeyinput[0] => lockingkeyinput[0].IN1
+lockingkeyinput[1] => lockingkeyinput[1].IN1
+lockingkeyinput[2] => lockingkeyinput[2].IN1
+lockingkeyinput[3] => lockingkeyinput[3].IN1
+lockingkeyinput[4] => lockingkeyinput[4].IN1
+lockingkeyinput[5] => lockingkeyinput[5].IN1
+lockingkeyinput[6] => lockingkeyinput[6].IN1
+lockingkeyinput[7] => lockingkeyinput[7].IN1
+lockingkeyinput[8] => lockingkeyinput[8].IN1
+lockingkeyinput[9] => lockingkeyinput[9].IN1
+lockingkeyinput[10] => lockingkeyinput[10].IN1
+lockingkeyinput[11] => lockingkeyinput[11].IN1
+lockingkeyinput[12] => lockingkeyinput[12].IN1
+lockingkeyinput[13] => lockingkeyinput[13].IN1
+lockingkeyinput[14] => lockingkeyinput[14].IN1
+lockingkeyinput[15] => lockingkeyinput[15].IN1
+lockingkeyinput[16] => lockingkeyinput[16].IN1
+lockingkeyinput[17] => lockingkeyinput[17].IN1
+lockingkeyinput[18] => lockingkeyinput[18].IN1
+lockingkeyinput[19] => lockingkeyinput[19].IN1
+lockingkeyinput[20] => lockingkeyinput[20].IN1
+lockingkeyinput[21] => lockingkeyinput[21].IN1
+lockingkeyinput[22] => lockingkeyinput[22].IN1
+lockingkeyinput[23] => lockingkeyinput[23].IN1
+lockingkeyinput[24] => lockingkeyinput[24].IN1
+lockingkeyinput[25] => lockingkeyinput[25].IN1
+lockingkeyinput[26] => lockingkeyinput[26].IN1
+lockingkeyinput[27] => lockingkeyinput[27].IN1
+lockingkeyinput[28] => lockingkeyinput[28].IN1
+lockingkeyinput[29] => lockingkeyinput[29].IN1
+lockingkeyinput[30] => lockingkeyinput[30].IN1
+lockingkeyinput[31] => lockingkeyinput[31].IN1
+lockingkeyinput[32] => lockingkeyinput[32].IN1
+lockingkeyinput[33] => lockingkeyinput[33].IN1
+lockingkeyinput[34] => lockingkeyinput[34].IN1
+lockingkeyinput[35] => lockingkeyinput[35].IN1
+lockingkeyinput[36] => lockingkeyinput[36].IN1
+lockingkeyinput[37] => lockingkeyinput[37].IN1
+lockingkeyinput[38] => lockingkeyinput[38].IN1
+lockingkeyinput[39] => lockingkeyinput[39].IN1
+lockingkeyinput[40] => lockingkeyinput[40].IN1
+lockingkeyinput[41] => lockingkeyinput[41].IN1
+lockingkeyinput[42] => lockingkeyinput[42].IN1
+lockingkeyinput[43] => lockingkeyinput[43].IN1
+lockingkeyinput[44] => lockingkeyinput[44].IN1
+lockingkeyinput[45] => lockingkeyinput[45].IN1
+lockingkeyinput[46] => lockingkeyinput[46].IN1
+lockingkeyinput[47] => lockingkeyinput[47].IN1
+lockingkeyinput[48] => lockingkeyinput[48].IN1
+lockingkeyinput[49] => lockingkeyinput[49].IN1
+lockingkeyinput[50] => lockingkeyinput[50].IN1
+lockingkeyinput[51] => lockingkeyinput[51].IN1
+lockingkeyinput[52] => lockingkeyinput[52].IN1
+lockingkeyinput[53] => lockingkeyinput[53].IN1
+lockingkeyinput[54] => lockingkeyinput[54].IN1
+lockingkeyinput[55] => lockingkeyinput[55].IN1
+lockingkeyinput[56] => lockingkeyinput[56].IN1
+lockingkeyinput[57] => lockingkeyinput[57].IN1
+lockingkeyinput[58] => lockingkeyinput[58].IN1
+lockingkeyinput[59] => lockingkeyinput[59].IN1
+lockingkeyinput[60] => lockingkeyinput[60].IN1
+lockingkeyinput[61] => lockingkeyinput[61].IN1
+lockingkeyinput[62] => lockingkeyinput[62].IN1
+lockingkeyinput[63] => lockingkeyinput[63].IN1
+lockingkeyinput[64] => lockingkeyinput[64].IN1
+lockingkeyinput[65] => lockingkeyinput[65].IN1
+lockingkeyinput[66] => lockingkeyinput[66].IN1
+lockingkeyinput[67] => lockingkeyinput[67].IN1
+lockingkeyinput[68] => lockingkeyinput[68].IN1
+lockingkeyinput[69] => lockingkeyinput[69].IN1
+lockingkeyinput[70] => lockingkeyinput[70].IN1
+lockingkeyinput[71] => lockingkeyinput[71].IN1
+lockingkeyinput[72] => lockingkeyinput[72].IN1
+lockingkeyinput[73] => lockingkeyinput[73].IN1
+lockingkeyinput[74] => lockingkeyinput[74].IN1
+lockingkeyinput[75] => lockingkeyinput[75].IN1
+lockingkeyinput[76] => lockingkeyinput[76].IN1
+lockingkeyinput[77] => lockingkeyinput[77].IN1
+lockingkeyinput[78] => lockingkeyinput[78].IN1
+lockingkeyinput[79] => lockingkeyinput[79].IN1
+lockingkeyinput[80] => lockingkeyinput[80].IN1
+lockingkeyinput[81] => lockingkeyinput[81].IN1
+lockingkeyinput[82] => lockingkeyinput[82].IN1
+lockingkeyinput[83] => lockingkeyinput[83].IN1
+lockingkeyinput[84] => lockingkeyinput[84].IN1
+lockingkeyinput[85] => lockingkeyinput[85].IN1
+lockingkeyinput[86] => lockingkeyinput[86].IN1
+lockingkeyinput[87] => lockingkeyinput[87].IN1
+lockingkeyinput[88] => lockingkeyinput[88].IN1
+lockingkeyinput[89] => lockingkeyinput[89].IN1
+lockingkeyinput[90] => lockingkeyinput[90].IN1
+lockingkeyinput[91] => lockingkeyinput[91].IN1
+lockingkeyinput[92] => lockingkeyinput[92].IN1
+lockingkeyinput[93] => lockingkeyinput[93].IN1
+lockingkeyinput[94] => lockingkeyinput[94].IN1
+lockingkeyinput[95] => lockingkeyinput[95].IN1
+lockingkeyinput[96] => lockingkeyinput[96].IN1
+lockingkeyinput[97] => lockingkeyinput[97].IN1
+lockingkeyinput[98] => lockingkeyinput[98].IN1
+lockingkeyinput[99] => lockingkeyinput[99].IN1
+lockingkeyinput[100] => lockingkeyinput[100].IN1
+lockingkeyinput[101] => lockingkeyinput[101].IN1
+lockingkeyinput[102] => lockingkeyinput[102].IN1
+lockingkeyinput[103] => lockingkeyinput[103].IN1
+lockingkeyinput[104] => lockingkeyinput[104].IN1
+lockingkeyinput[105] => lockingkeyinput[105].IN1
+lockingkeyinput[106] => lockingkeyinput[106].IN1
+lockingkeyinput[107] => lockingkeyinput[107].IN1
+lockingkeyinput[108] => lockingkeyinput[108].IN1
+lockingkeyinput[109] => lockingkeyinput[109].IN1
+lockingkeyinput[110] => lockingkeyinput[110].IN1
+lockingkeyinput[111] => lockingkeyinput[111].IN1
+lockingkeyinput[112] => lockingkeyinput[112].IN1
+lockingkeyinput[113] => lockingkeyinput[113].IN1
+lockingkeyinput[114] => lockingkeyinput[114].IN1
+lockingkeyinput[115] => lockingkeyinput[115].IN1
+lockingkeyinput[116] => lockingkeyinput[116].IN1
+lockingkeyinput[117] => lockingkeyinput[117].IN1
+lockingkeyinput[118] => lockingkeyinput[118].IN1
+lockingkeyinput[119] => lockingkeyinput[119].IN1
+lockingkeyinput[120] => lockingkeyinput[120].IN1
+lockingkeyinput[121] => lockingkeyinput[121].IN1
+lockingkeyinput[122] => lockingkeyinput[122].IN1
+lockingkeyinput[123] => lockingkeyinput[123].IN1
+lockingkeyinput[124] => lockingkeyinput[124].IN1
+lockingkeyinput[125] => lockingkeyinput[125].IN1
+lockingkeyinput[126] => lockingkeyinput[126].IN1
+lockingkeyinput[127] => lockingkeyinput[127].IN1
+vga_colour[0] <= NAND_g:NAND_1041_.Y
+vga_colour[1] <= NAND_g:NAND_1044_.Y
+vga_colour[2] <= NAND_g:NAND_1047_.Y
+vga_plot <= NAND_g:NAND_1050_.Y
+vga_x[0] <= NAND_g:NAND_1074_.Y
+vga_x[1] <= NAND_g:NAND_1077_.Y
+vga_x[2] <= NAND_g:NAND_1080_.Y
+vga_x[3] <= NAND_g:NAND_1083_.Y
+vga_x[4] <= NAND_g:NAND_1086_.Y
+vga_x[5] <= XNOR_g:keygate_XNOR_0.Y
+vga_x[6] <= NAND_g:NAND_1092_.Y
+vga_x[7] <= NAND_g:NAND_1095_.Y
+vga_y[0] <= NAND_g:NAND_1053_.Y
+vga_y[1] <= NAND_g:NAND_1056_.Y
+vga_y[2] <= NAND_g:NAND_1059_.Y
+vga_y[3] <= NAND_g:NAND_1062_.Y
+vga_y[4] <= NAND_g:NAND_1065_.Y
+vga_y[5] <= NAND_g:NAND_1068_.Y
+vga_y[6] <= NAND_g:NAND_1071_.Y
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1038_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1096_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1097_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1098_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1099_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1100_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1156_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1191_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1192_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1193_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1194_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1195_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1196_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1197_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1198_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1199_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1200_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1201_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1202_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1203_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1204_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1205_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1226_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1227_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1228_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1229_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1230_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1231_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1232_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1233_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1234_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1235_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1236_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1237_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1238_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1239_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1240_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1241_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1242_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1243_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1244_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1245_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1246_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1247_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1248_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1249_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1250_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1251_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1252_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1262_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1266_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1270_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1322_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1341_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1359_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1407_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1645_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1721_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1785_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1969_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1972_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1982_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_1985_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_2113_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_2114_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOT_g:NOT_2115_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1039_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1040_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1041_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1042_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1043_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1044_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1045_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1046_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1047_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1048_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1049_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1050_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1051_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1052_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1053_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1054_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1055_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1056_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1057_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1058_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1059_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1060_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1061_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1062_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1063_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1064_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1065_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1066_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1067_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1068_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1069_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1070_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1071_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1072_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1073_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1074_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1075_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1076_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1077_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1078_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1079_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1080_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1081_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1082_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1083_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1084_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1085_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1086_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1087_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1088_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1089_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1090_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1091_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1092_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1093_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1094_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1095_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1108_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1112_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1115_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1116_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1124_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1126_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1127_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1132_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1134_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1135_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1136_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1138_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1139_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1140_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1142_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1143_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1144_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1146_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1147_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1148_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1150_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1151_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1152_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1153_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1154_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1157_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1158_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1165_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1166_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1168_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1169_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1171_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1172_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1174_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1175_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1176_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1179_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1183_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1187_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1255_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1257_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1259_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1261_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1265_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1271_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1276_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1279_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1280_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1285_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1286_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1288_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1290_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1291_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1292_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1293_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1294_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1295_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1296_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1297_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1298_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1299_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1300_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1302_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1303_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1304_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1305_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1306_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1308_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1309_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1310_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1312_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1313_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1314_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1316_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1318_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1320_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1324_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1325_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1326_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1329_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1330_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1331_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1332_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1339_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1340_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1344_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1347_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1353_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1354_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1356_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1357_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1358_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1361_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1362_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1364_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1367_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1368_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1370_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1371_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1373_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1374_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1375_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1377_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1378_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1380_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1382_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1383_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1385_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1386_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1387_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1389_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1391_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1392_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1393_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1395_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1396_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1397_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1398_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1399_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1400_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1401_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1402_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1403_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1404_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1405_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1406_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1408_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1410_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1412_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1414_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1416_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1419_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1420_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1421_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1423_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1424_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1427_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1428_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1430_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1431_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1432_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1434_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1437_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1439_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1441_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1442_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1443_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1445_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1446_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1447_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1449_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1453_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1454_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1457_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1458_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1460_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1461_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1462_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1465_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1466_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1467_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1469_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1470_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1474_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1475_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1476_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1478_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1479_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1481_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1482_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1483_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1485_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1488_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1489_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1490_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1492_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1493_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1497_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1498_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1499_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1501_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1502_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1504_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1505_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1508_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1511_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1515_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1516_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1519_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1521_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1523_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1524_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1527_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1530_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1531_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1533_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1534_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1535_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1538_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1539_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1540_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1541_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1543_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1544_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1546_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1547_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1548_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1549_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1551_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1553_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1555_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1556_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1557_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1559_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1560_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1562_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1563_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1567_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1568_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1569_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1571_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1574_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1577_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1579_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1582_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1583_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1586_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1588_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1590_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1591_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1592_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1594_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1597_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1599_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1601_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1604_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1605_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1606_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1608_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1610_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1611_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1612_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1613_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1615_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1616_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1617_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1619_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1621_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1624_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1625_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1626_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1631_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1632_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1633_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1635_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1636_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1637_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1639_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1643_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1646_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1650_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1651_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1657_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1658_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1659_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1661_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1663_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1664_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1667_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1669_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1672_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1674_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1676_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1678_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1680_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1681_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1682_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1683_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1685_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1692_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1693_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1699_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1700_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1701_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1704_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1706_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1708_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1710_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1714_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1715_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1716_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1718_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1724_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1725_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1726_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1727_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1731_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1732_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1733_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1737_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1738_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1741_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1743_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1747_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1748_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1749_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1751_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1755_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1756_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1757_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1758_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1762_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1763_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1766_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1768_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1769_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1770_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1772_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1774_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1778_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1779_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1780_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1782_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1788_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1789_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1790_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1791_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1795_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1796_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1797_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1801_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1802_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1805_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1807_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1811_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1812_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1813_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1815_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1818_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1820_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1821_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1822_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1823_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1825_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1826_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1827_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1836_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1837_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1840_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1841_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1842_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1843_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1845_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1846_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1847_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1848_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1849_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1850_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1851_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1852_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1853_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1854_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1855_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1856_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1857_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1858_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1859_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1860_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1861_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1862_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1863_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1864_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1865_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1866_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1867_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1868_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1870_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1871_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1873_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1885_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1887_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1889_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1891_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1892_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1893_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1896_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1898_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1899_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1902_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1904_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1905_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1907_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1908_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1909_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1910_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1912_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1917_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1918_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1919_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1921_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1923_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1924_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1928_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1929_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1930_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1932_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1933_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1935_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1936_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1937_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1939_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1940_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1943_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1944_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1945_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1947_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1949_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1950_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1951_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1953_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1957_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1958_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1963_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1964_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1965_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1967_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1968_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1970_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1973_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1974_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1975_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1976_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1977_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1978_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1980_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1981_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1983_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1986_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1989_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1990_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1993_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1994_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1995_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_1996_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2001_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2002_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2006_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2008_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2009_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2012_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2013_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2014_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2015_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2016_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2018_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2019_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2022_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2023_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2024_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2025_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2026_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2028_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2030_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2033_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2034_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2036_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2037_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2040_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2042_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2043_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2046_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2047_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2049_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2052_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2053_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2054_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2058_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2059_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2060_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2061_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2062_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2063_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2067_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2070_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2073_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2074_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2075_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2077_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2080_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2084_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2085_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2089_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2090_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2093_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2095_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2097_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2099_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2102_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2103_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2104_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2105_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NAND_g:NAND_2112_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1101_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1102_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1103_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1104_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1106_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1107_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1109_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1110_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1111_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1114_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1120_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1121_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1122_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1125_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1128_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1155_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1159_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1163_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1177_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1178_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1180_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1184_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1188_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1254_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1256_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1258_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1264_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1268_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1269_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1278_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1281_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1283_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1287_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1289_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1301_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1307_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1311_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1315_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1319_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1321_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1328_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1335_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1338_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1342_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1345_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1346_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1348_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1350_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1351_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1360_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1363_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1365_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1366_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1369_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1372_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1376_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1379_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1381_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1384_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1390_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1394_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1409_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1413_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1433_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1440_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1444_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1448_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1450_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1451_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1452_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1463_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1464_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1473_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1477_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1480_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1484_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1486_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1487_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1491_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1495_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1506_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1509_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1512_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1513_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1514_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1520_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1528_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1537_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1542_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1545_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1550_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1554_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1561_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1565_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1570_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1572_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1575_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1580_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1581_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1587_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1593_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1598_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1602_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1603_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1607_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1614_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1618_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1620_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1622_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1627_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1629_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1640_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1641_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1642_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1647_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1648_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1653_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1655_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1660_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1662_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1665_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1666_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1668_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1670_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1687_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1691_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1694_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1695_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1696_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1702_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1712_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1720_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1728_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1730_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1734_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1745_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1753_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1759_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1761_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1764_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1776_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1784_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1792_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1794_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1798_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1809_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1824_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1828_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1829_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1844_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1869_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1872_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1876_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1878_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1880_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1882_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1886_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1913_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1914_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1915_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1916_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1927_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1931_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1934_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1948_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1952_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1954_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1955_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1956_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1960_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1971_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1984_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1987_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1991_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1998_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_1999_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2000_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2029_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2031_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2038_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2045_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2056_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2065_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2068_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2069_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2071_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2078_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2079_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2081_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2086_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2091_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2094_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2100_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2106_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2108_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2110_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|AND_g:AND_2111_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1105_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1113_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1117_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1118_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1119_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1123_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1129_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1130_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1131_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1160_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1161_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1162_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1181_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1182_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1185_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1186_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1189_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1190_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1253_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1260_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1263_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1267_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1272_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1273_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1274_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1275_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1277_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1284_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1317_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1323_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1327_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1333_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1334_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1336_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1337_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1343_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1349_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1352_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1415_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1418_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1422_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1529_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1532_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1536_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1644_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1649_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1689_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1690_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1697_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1698_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1722_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1723_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1786_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1787_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1817_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1819_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1875_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1877_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1881_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1883_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1884_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1959_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1988_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1992_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_1997_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_2004_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_2005_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_2032_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_2035_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_2039_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_2041_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_2044_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_2048_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_2082_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_2096_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_2098_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|NOR_g:NOR_2109_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1133_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1137_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1141_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1145_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1149_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1164_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1167_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1170_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1173_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1282_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1411_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1425_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1435_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1455_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1471_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1494_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1503_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1507_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1510_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1517_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1525_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1558_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1564_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1573_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1584_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1595_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1628_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1654_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1656_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1671_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1675_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1677_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1684_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1686_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1688_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1707_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1709_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1711_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1713_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1717_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1719_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1742_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1744_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1746_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1752_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1771_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1773_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1775_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1777_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1781_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1783_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1806_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1808_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1810_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1816_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1879_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1890_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1894_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1900_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1922_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1925_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1941_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1966_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_1979_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_2007_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_2010_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_2020_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_2055_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_2064_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_2072_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:XOR_2092_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_2
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_3
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_4
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_7
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_8
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_15
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_17
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_18
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_19
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_20
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_24
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_25
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_26
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_28
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_30
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_31
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_34
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_41
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_42
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_46
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_48
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_49
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_50
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_52
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_53
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_55
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_56
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_57
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_58
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_63
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_65
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_71
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_72
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_73
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_75
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_77
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_78
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_79
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_81
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_82
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_83
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_84
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_86
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_88
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_89
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_91
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_92
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_93
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_94
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_95
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_97
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_98
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_100
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_107
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_108
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_112
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_113
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_114
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_120
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_122
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_124
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XOR_g:keygate_XOR_126
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|BUF_g:BUF_1206_
+A => Y.DATAIN
+Y <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1355_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1388_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1417_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1426_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1429_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1436_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1438_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1456_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1459_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1468_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1472_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1496_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1500_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1518_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1522_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1526_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1552_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1566_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1576_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1578_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1585_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1589_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1596_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1600_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1609_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1623_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1630_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1634_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1638_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1652_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1673_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1679_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1703_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1705_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1729_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1735_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1736_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1739_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1740_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1750_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1754_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1760_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1765_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1767_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1793_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1799_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1800_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1803_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1804_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1814_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1830_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1831_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1832_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1833_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1834_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1835_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1838_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1839_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1874_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1888_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1895_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1897_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1901_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1903_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1906_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1911_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1920_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1926_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1938_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1942_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1946_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1961_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_1962_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2003_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2011_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2017_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2021_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2027_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2050_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2051_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2057_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2066_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2076_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2083_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2087_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2088_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2101_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:XNOR_2107_
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_0
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_1
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_5
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_6
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_9
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_10
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_11
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_12
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_13
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_14
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_16
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_21
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_22
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_23
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_27
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_29
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_32
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_33
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_35
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_36
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_37
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_38
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_39
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_40
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_43
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_44
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_45
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_47
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_51
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_54
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_59
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_60
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_61
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_62
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_64
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_66
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_67
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_68
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_69
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_70
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_74
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_76
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_80
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_85
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_87
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_90
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_96
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_99
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_101
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_102
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_103
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_104
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_105
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_106
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_109
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_110
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_111
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_115
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_116
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_117
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_118
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_119
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_121
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_123
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_125
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|XNOR_g:keygate_XNOR_127
+A => Y.IN0
+B => Y.IN1
+Y <= Y.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1207_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1208_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1209_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1210_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1211_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1212_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1213_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1214_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1215_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1216_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1217_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1218_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1219_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1220_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1221_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__1222_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__2116_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__2117_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__2118_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFRcell:DFF__2119_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+R => Q~reg0.ACLR
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__1223_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__1224_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__1225_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2120_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2121_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2122_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2123_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2124_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2125_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2126_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2127_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2128_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2129_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2130_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2131_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2132_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2133_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2134_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2135_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2136_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2137_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2138_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2139_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2140_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2141_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2142_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2143_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2144_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2145_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2146_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2147_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2148_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2149_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2150_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2151_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2152_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2153_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2154_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2155_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2156_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2157_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2158_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2159_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2160_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|Bresenham_circle:Bresenham_circle_init|DFFcell:DFF__2161_
+C => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|hexto7segment:H0
+x[0] => Decoder0.IN3
+x[1] => Decoder0.IN2
+x[2] => Decoder0.IN1
+x[3] => Decoder0.IN0
+z[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+z[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+z[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+z[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+z[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+z[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+z[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|hexto7segment:H1
+x[0] => Decoder0.IN3
+x[1] => Decoder0.IN2
+x[2] => Decoder0.IN1
+x[3] => Decoder0.IN0
+z[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+z[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+z[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+z[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+z[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+z[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+z[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|vga_demo|memory_with_timer:my_memory
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => count[5].CLK
+clk => count[6].CLK
+clk => count[7].CLK
+clk => count[8].CLK
+clk => count[9].CLK
+clk => count[10].CLK
+clk => count[11].CLK
+clk => count[12].CLK
+clk => count[13].CLK
+clk => count[14].CLK
+clk => count[15].CLK
+clk => count[16].CLK
+clk => count[17].CLK
+clk => count[18].CLK
+clk => count[19].CLK
+clk => count[20].CLK
+clk => count[21].CLK
+clk => count[22].CLK
+clk => count[23].CLK
+clk => count[24].CLK
+clk => count[25].CLK
+clk => address_reg[0].CLK
+clk => address_reg[1].CLK
+clk => address_reg[2].CLK
+clk => address_reg[3].CLK
+reset => count[0].ACLR
+reset => count[1].ACLR
+reset => count[2].ACLR
+reset => count[3].ACLR
+reset => count[4].ACLR
+reset => count[5].ACLR
+reset => count[6].ACLR
+reset => count[7].ACLR
+reset => count[8].ACLR
+reset => count[9].ACLR
+reset => count[10].ACLR
+reset => count[11].ACLR
+reset => count[12].ACLR
+reset => count[13].ACLR
+reset => count[14].ACLR
+reset => count[15].ACLR
+reset => count[16].ACLR
+reset => count[17].ACLR
+reset => count[18].ACLR
+reset => count[19].ACLR
+reset => count[20].ACLR
+reset => count[21].ACLR
+reset => count[22].ACLR
+reset => count[23].ACLR
+reset => count[24].ACLR
+reset => count[25].ACLR
+reset => address_reg[0].PRESET
+reset => address_reg[1].ACLR
+reset => address_reg[2].PRESET
+reset => address_reg[3].ACLR
+count_up_key => always0.IN0
+count_up_key => always0.IN0
+count_down_key => always0.IN1
+count_down_key => always0.IN1
+address[0] <= address_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+address[1] <= address_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+address[2] <= address_reg[2].DB_MAX_OUTPUT_PORT_TYPE
+address[3] <= address_reg[3].DB_MAX_OUTPUT_PORT_TYPE
+data_out[0] <= memory.DATAOUT
+data_out[1] <= memory.DATAOUT1
+data_out[2] <= memory.DATAOUT2
+data_out[3] <= memory.DATAOUT3
+data_out[4] <= memory.DATAOUT4
+data_out[5] <= memory.DATAOUT5
+data_out[6] <= memory.DATAOUT6
+data_out[7] <= memory.DATAOUT7
+data_out[8] <= memory.DATAOUT8
+data_out[9] <= memory.DATAOUT9
+data_out[10] <= memory.DATAOUT10
+data_out[11] <= memory.DATAOUT11
+data_out[12] <= memory.DATAOUT12
+data_out[13] <= memory.DATAOUT13
+data_out[14] <= memory.DATAOUT14
+data_out[15] <= memory.DATAOUT15
+data_out[16] <= memory.DATAOUT16
+data_out[17] <= memory.DATAOUT17
+data_out[18] <= memory.DATAOUT18
+data_out[19] <= memory.DATAOUT19
+data_out[20] <= memory.DATAOUT20
+data_out[21] <= memory.DATAOUT21
+data_out[22] <= memory.DATAOUT22
+data_out[23] <= memory.DATAOUT23
+data_out[24] <= memory.DATAOUT24
+data_out[25] <= memory.DATAOUT25
+data_out[26] <= memory.DATAOUT26
+data_out[27] <= memory.DATAOUT27
+data_out[28] <= memory.DATAOUT28
+data_out[29] <= memory.DATAOUT29
+data_out[30] <= memory.DATAOUT30
+data_out[31] <= memory.DATAOUT31
+data_out[32] <= memory.DATAOUT32
+data_out[33] <= memory.DATAOUT33
+data_out[34] <= memory.DATAOUT34
+data_out[35] <= memory.DATAOUT35
+data_out[36] <= memory.DATAOUT36
+data_out[37] <= memory.DATAOUT37
+data_out[38] <= memory.DATAOUT38
+data_out[39] <= memory.DATAOUT39
+data_out[40] <= memory.DATAOUT40
+data_out[41] <= memory.DATAOUT41
+data_out[42] <= memory.DATAOUT42
+data_out[43] <= memory.DATAOUT43
+data_out[44] <= memory.DATAOUT44
+data_out[45] <= memory.DATAOUT45
+data_out[46] <= memory.DATAOUT46
+data_out[47] <= memory.DATAOUT47
+data_out[48] <= memory.DATAOUT48
+data_out[49] <= memory.DATAOUT49
+data_out[50] <= memory.DATAOUT50
+data_out[51] <= memory.DATAOUT51
+data_out[52] <= memory.DATAOUT52
+data_out[53] <= memory.DATAOUT53
+data_out[54] <= memory.DATAOUT54
+data_out[55] <= memory.DATAOUT55
+data_out[56] <= memory.DATAOUT56
+data_out[57] <= memory.DATAOUT57
+data_out[58] <= memory.DATAOUT58
+data_out[59] <= memory.DATAOUT59
+data_out[60] <= memory.DATAOUT60
+data_out[61] <= memory.DATAOUT61
+data_out[62] <= memory.DATAOUT62
+data_out[63] <= memory.DATAOUT63
+data_out[64] <= memory.DATAOUT64
+data_out[65] <= memory.DATAOUT65
+data_out[66] <= memory.DATAOUT66
+data_out[67] <= memory.DATAOUT67
+data_out[68] <= memory.DATAOUT68
+data_out[69] <= memory.DATAOUT69
+data_out[70] <= memory.DATAOUT70
+data_out[71] <= memory.DATAOUT71
+data_out[72] <= memory.DATAOUT72
+data_out[73] <= memory.DATAOUT73
+data_out[74] <= memory.DATAOUT74
+data_out[75] <= memory.DATAOUT75
+data_out[76] <= memory.DATAOUT76
+data_out[77] <= memory.DATAOUT77
+data_out[78] <= memory.DATAOUT78
+data_out[79] <= memory.DATAOUT79
+data_out[80] <= memory.DATAOUT80
+data_out[81] <= memory.DATAOUT81
+data_out[82] <= memory.DATAOUT82
+data_out[83] <= memory.DATAOUT83
+data_out[84] <= memory.DATAOUT84
+data_out[85] <= memory.DATAOUT85
+data_out[86] <= memory.DATAOUT86
+data_out[87] <= memory.DATAOUT87
+data_out[88] <= memory.DATAOUT88
+data_out[89] <= memory.DATAOUT89
+data_out[90] <= memory.DATAOUT90
+data_out[91] <= memory.DATAOUT91
+data_out[92] <= memory.DATAOUT92
+data_out[93] <= memory.DATAOUT93
+data_out[94] <= memory.DATAOUT94
+data_out[95] <= memory.DATAOUT95
+data_out[96] <= memory.DATAOUT96
+data_out[97] <= memory.DATAOUT97
+data_out[98] <= memory.DATAOUT98
+data_out[99] <= memory.DATAOUT99
+data_out[100] <= memory.DATAOUT100
+data_out[101] <= memory.DATAOUT101
+data_out[102] <= memory.DATAOUT102
+data_out[103] <= memory.DATAOUT103
+data_out[104] <= memory.DATAOUT104
+data_out[105] <= memory.DATAOUT105
+data_out[106] <= memory.DATAOUT106
+data_out[107] <= memory.DATAOUT107
+data_out[108] <= memory.DATAOUT108
+data_out[109] <= memory.DATAOUT109
+data_out[110] <= memory.DATAOUT110
+data_out[111] <= memory.DATAOUT111
+data_out[112] <= memory.DATAOUT112
+data_out[113] <= memory.DATAOUT113
+data_out[114] <= memory.DATAOUT114
+data_out[115] <= memory.DATAOUT115
+data_out[116] <= memory.DATAOUT116
+data_out[117] <= memory.DATAOUT117
+data_out[118] <= memory.DATAOUT118
+data_out[119] <= memory.DATAOUT119
+data_out[120] <= memory.DATAOUT120
+data_out[121] <= memory.DATAOUT121
+data_out[122] <= memory.DATAOUT122
+data_out[123] <= memory.DATAOUT123
+data_out[124] <= memory.DATAOUT124
+data_out[125] <= memory.DATAOUT125
+data_out[126] <= memory.DATAOUT126
+data_out[127] <= memory.DATAOUT127
 
 
 |vga_demo|vga_adapter:VGA
