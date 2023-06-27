@@ -23,17 +23,20 @@ To use the Bresenham Circle Algorithm Hardware Accelerator module, Clone this re
 
 The file structure of this repository is organized as follows:
 
-├── code/
-│ ├── Challenge task/
-│ │ ├── testbench.v
-│ │ └── vga_demo.v
-│ ├── task2/
-│ │ └── vga_demo.v
-│ ├── task3/
-│ │ ├── testbench.v
-│ │ └── task3.v
-│ └── vga_demo.sof
-└── README.md
+<pre>
+code/
+├── Challenge task/
+│   ├── testbench.v
+│   └── vga_demo.v
+├── task2/
+│   └── vga_demo.v
+├── task3/
+│   ├── testbench.v
+│   └── task3.v
+└── vga_demo.sof
+README.md
+</pre>
+
 
 
 Here is a breakdown of the main directories and files in the repository:
