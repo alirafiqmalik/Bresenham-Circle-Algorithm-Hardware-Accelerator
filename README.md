@@ -34,6 +34,8 @@ code/
 │   ├── testbench.v
 │   └── task3.v
 └── vga_demo.sof
+DSDassign1.docx
+EE421 A-1 Spring-2022.pdf
 README.md
 </pre>
 
