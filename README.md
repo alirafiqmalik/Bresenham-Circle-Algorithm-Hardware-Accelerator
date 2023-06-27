@@ -17,7 +17,7 @@ The Bresenham Circle Algorithm is commonly used in graphics applications due to 
 
 To use the Bresenham Circle Algorithm Hardware Accelerator module, clone this repository to your local machine:
 <pre>
-  git clone https://github.com/alirafiqmalik/Bresenham-Circle-Algorithm-Hardware-Accelerator.git
+git clone https://github.com/alirafiqmalik/Bresenham-Circle-Algorithm-Hardware-Accelerator.git
 </pre>
 
 
