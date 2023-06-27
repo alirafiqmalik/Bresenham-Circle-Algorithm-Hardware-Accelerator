@@ -1,5 +1,0 @@
-
-State Machine - |vga_demo|memory_with_timer:my_memory|count
-Name count.01011111010111100001000000 
-count.00000000000000000000000000 0 
-count.01011111010111100001000000 1 
